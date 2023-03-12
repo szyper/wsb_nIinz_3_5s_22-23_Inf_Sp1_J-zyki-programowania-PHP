@@ -12,7 +12,7 @@
 	<h4>Użytkownicy</h4>
 	<?php
 		require_once "./scripts/connect.php";
-	$sql = "SELECT * FROM `users`;";
+	$sql = "SELECT * FROM `users` INNER JOIN `cities` ON `users`.`city_id`=`cities`.`id`;";
 		$result = $conn->query($sql);
 		echo <<<TABLEHEAD
 			<table>
@@ -20,6 +20,7 @@
 					<th>Imię</th>
 					<th>Nazwisko</th>
 					<th>Data urodzenia</th>
+					<th>Miasto</th>
 				</tr>
 TABLEHEAD;
 
@@ -29,6 +30,7 @@ TABLEHEAD;
 					<td>$user[firstName]</td>
 					<td>$user[lastName]</td>
 					<td>$user[birthday]</td>
+					<td>$user[cityName]</td>
 				</tr>
 TABLEUSERS;
 		}
