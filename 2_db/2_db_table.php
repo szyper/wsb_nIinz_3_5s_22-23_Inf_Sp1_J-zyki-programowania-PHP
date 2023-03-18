@@ -16,19 +16,23 @@
       <th>Nazwisko</th>
       <th>Data urodzenia</th>
       <th>Miasto</th>
+      <th>Województwo</th>
+      <th>Kraj</th>
     </tr>
 
 	<?php
 		require_once "./scripts/connect.php";
-	$sql = "SELECT * FROM `users` INNER JOIN `cities` ON `users`.`city_id`=`cities`.`id`;";
+	$sql = "SELECT `users`.`firstName` AS `imie` , `users`.`lastName`, `users`.`birthday`, `cities`.`city`, `states`.`state`, `countries`.`country` FROM `users` INNER JOIN `cities` ON `users`.`city_id`=`cities`.`id` INNER JOIN `states` ON `cities`.`state_id`=`states`.`id` INNER JOIN `countries` ON `states`.`country_id`=`countries`.`id`;";
     $result = $conn->query($sql);
     while($user = $result->fetch_assoc()){
       echo <<< TABLEUSERS
         <tr>
-          <td>$user[firstName]</td>
+          <td>$user[imie]</td>
           <td>$user[lastName]</td>
           <td>$user[birthday]</td>
           <td>$user[city]</td>
+          <td>$user[state]</td>
+          <td>$user[country]</td>
         </tr>
 TABLEUSERS;
     }
