@@ -1,2 +1,2 @@
 <?php
-	echo "usuwanie usera";
+	print_r($_GET);
