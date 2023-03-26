@@ -33,10 +33,12 @@
           <td>$user[city]</td>
           <td>$user[state]</td>
           <td>$user[country]</td>
+          <td><a href="./scripts/delete_user.php">Usuń</a></td>
         </tr>
 TABLEUSERS;
     }
     echo "</table>";
 	?>
+
 </body>
 </html>
