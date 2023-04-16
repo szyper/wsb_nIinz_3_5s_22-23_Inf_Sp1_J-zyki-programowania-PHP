@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="pl">
 <head>
@@ -18,6 +21,11 @@
         echo "<h4>Usunięto użytkownika o id = $_GET[userDeleteId]</h4>";
       }
     }
+
+  if (isset($_SESSION["success"])){
+	  echo $_SESSION["success"];
+    unset($_SESSION["success"]);
+  }
   ?>
   <table>
     <tr>
@@ -58,6 +66,23 @@ TABLEUSERS;
       if (isset($_GET["addUser"])){
         echo <<<ADDUSERFORM
           <h3>Dodaj użytkownika</h3>
+          <form action="./scripts/add_user.php" method="post">
+            <input type="text" name="firstName" placeholder="Podaj imię" autofocus><br><br>
+            <input type="text" name="lastName" placeholder="Podaj nazwisko"><br><br>
+            <input type="date" name="birthday"> Data urodzenia<br><br>
+            <select name="city_id">
+        ADDUSERFORM;
+          $sql = "SELECT * FROM `cities`";
+          $result = $conn->query($sql);
+          while ($city = $result->fetch_assoc()){
+            echo "<option value=\"$city[id]\">$city[city]</option>";
+          }
+	      echo <<<ADDUSERFORM
+            </select><br><br>
+<!--            <input type="number" name="city_id" placeholder="Podaj id miasta"><br><br>-->
+            <input type="checkbox" name="terms"> Regulamin<br><br>
+            <input type="submit" value="Dodaj użytkownika">
+          </form>
 ADDUSERFORM;
       }else{
         echo "<a href=\"./3_db_table_delete_add.php?addUser=1\">Dodaj użytkownika</a>";
