@@ -6,7 +6,7 @@
 if (!empty($_GET["deleteUserId"])) {
 	require_once "./connect.php";
 //	$sql = "DELETE FROM users WHERE `users`.`firstName` = 'Anna'";
-//	$sql = "DELETE FROM users WHERE `users`.`id` = 8";
+	// $sql = "DELETE FROM users WHERE `users`.`id` = 8";
 	$sql = "DELETE FROM users WHERE `users`.`id` = $_GET[deleteUserId]";
 	$conn->query($sql);
 }
@@ -18,4 +18,5 @@ if ($conn->affected_rows == 0){
 	$userId = $_GET["deleteUserId"];
 }
 
-header("location: ../2_db_table.php?userDeleteId=$userId");
+//header("location: ../2_db_table.php?userDeleteId=$userId");
+header("location: ../3_db_table_delete_add.php?userDeleteId=$userId");
