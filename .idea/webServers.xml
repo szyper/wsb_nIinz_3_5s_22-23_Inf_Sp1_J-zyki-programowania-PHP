@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="24ce7425-1307-4d98-a655-cb99e5c5325e" name="baza" url="http://localhost/git/wsb/wsb_nIinz_3_5s_22-23_Inf_Sp1_J-zyki-programowania-PHP/2_db/2_db_table.php">
+        <fileTransfer accessType="LOCAL" port="0" />
+      </webServer>
+    </option>
+  </component>
+</project>
