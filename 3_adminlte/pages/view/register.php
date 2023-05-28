@@ -36,7 +36,7 @@ ERROR;
     </div>
     <div class="card-body">
       <p class="login-box-msg">Register a new membership</p>
-      <form action="../../register_user.php" method="post">
+      <form action="../../scripts/register_user.php" method="post">
         <div class="input-group mb-3">
           <input type="text" class="form-control" placeholder="Podaj imię" name="firstName">
           <div class="input-group-append">
@@ -101,7 +101,7 @@ ERROR;
         </div>
 
         <div class="input-group mb-3">
-          <select class="form-control">
+          <select class="form-control" name="city_id">
             <?php
               require_once "../../scripts/connect.php";
               $sql = "SELECT * FROM cities";
